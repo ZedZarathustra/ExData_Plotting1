@@ -2,7 +2,7 @@
 ## Author: Scott Zwick - 1/22/2018
 ## Descriptions: Explatory Data Analysis - Course Project #1
 ##
-setwd("~/R/Coursera/4-Exploratory_Data_Analysis/Course_Proj_1")
+setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
 ## Read/Setup data file
      elec_pow <- read.table("household_power_consumption.txt", sep=";",
                  header = TRUE, na.strings = "?", stringsAsFactors = FALSE)
@@ -15,7 +15,3 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/Course_Proj_1")
           xlab = "Global Active Power (kilowatts)",
           main = "Global Active Power")
      dev.off()
-## save plot
-##     dev.copy(png,"plot1.png")
-##     dev.off
-     
