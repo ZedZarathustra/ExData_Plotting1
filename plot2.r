@@ -11,7 +11,9 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
      ep_2days <- rbind(ep1, ep2)
 ##Convert format of date & time columns
      ep_2days$Date <- as.Date(ep_2days$Date, format = "%d/%m/%Y")
+     ep_2days$Time <- strptime(ep_2days$Time, format = "%H:%M:%S")
      ## plot line graph
 ##png(filename = "plot1.png", width = 480, height = 480)
-with(ep_2days, plot(Global_active_power, time))
+     with(ep_2days, plot(Time, Global_active_power, type = "l",
+          xlab = "", ylab = "Global Active Power (kilowatts)" ))
 ##dev.off()
