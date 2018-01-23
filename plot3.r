@@ -16,12 +16,12 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
 ## Subset metering
      
 ## Plot line graph
-##   png(filename = "plot3.png", width = 480, height = 480)
+     png(filename = "plot3.png", width = 480, height = 480)
      with(ep_2days, plot(DateTime, Sub_metering_1, type = "l",
                     xlab = "", ylab = "Energy sub metering" ))
      lines(ep_2days$DateTime, ep_2days$Sub_metering_2, type = "l", col = "red")
      lines(ep_2days$DateTime, ep_2days$Sub_metering_3, type = "l", col = "blue")
-     legend("topright", col=c("blue", "red"), 
+     legend("topright", col=c("black", "blue", "red"), 
             legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
             lty = 1, lwd = 2)
-##     dev.off()
+     dev.off()
