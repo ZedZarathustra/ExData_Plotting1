@@ -13,15 +13,15 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
 ## Combine date & time columns and format
      ep_2days$DateTime <- paste(ep_2days$Date, ep_2days$Time, sep = " ")
      ep_2days$DateTime <- strptime(ep_2days$DateTime, format = "%d/%m/%Y %H:%M:%S")
-## Set up plot window
+## Set up file and plot window
+     png(filename = "plot4.png", width = 480, height = 480)
      par(mfrow = c(2, 2), mar = c(4, 4, 1, 1), oma = c(2, 2, 0, 0))
      ## 1st plot
-##     png(filename = "plot4.png", width = 480, height = 480)
      with(ep_2days, plot(DateTime, Global_active_power, type = "l",
-                         xlab = "", ylab = "Global Active Power (kilowatts)" ))
+                         xlab = "", ylab = "Global Active Power" ))
 ## 2nd plot
      with(ep_2days, plot(DateTime, Voltage, type = "l",
-                         xlab = "", ylab = "Voltage" ))
+                         xlab = "datetime", ylab = "Voltage" ))
 ## 3rd plot
      with(ep_2days, plot(DateTime, Sub_metering_1, type = "l",
                          xlab = "", ylab = "Energy sub metering" ))
@@ -29,8 +29,9 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
      lines(ep_2days$DateTime, ep_2days$Sub_metering_3, type = "l", col = "blue")
      legend("topright", col=c("black", "blue", "red"), 
             legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-            lty = 1, lwd = 2)
+            lty = 1, lwd = 2, bty = "n")
 ## 4th plot
-     
-     ##     dev.off()
+     with(ep_2days, plot(DateTime, Global_reactive_power, type = "l",
+                         xlab = "datetime", ylab = "Global_reactive_power" ))
+     dev.off()
      
