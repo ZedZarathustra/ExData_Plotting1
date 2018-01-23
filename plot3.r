@@ -20,4 +20,5 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
      with(ep_2days, plot(DateTime, Sub_metering_1, type = "l",
                     xlab = "", ylab = "Energy sub metering" ))
      lines(ep_2days$DateTime, ep_2days$Sub_metering_2, type = "l", col = "red")
-dev.off()
+     lines(ep_2days$DateTime, ep_2days$Sub_metering_3, type = "l", col = "blue")
+     dev.off()
