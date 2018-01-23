@@ -5,15 +5,16 @@
 setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
 ## Read/Setup data file
      elec_pow <- read.table("household_power_consumption.txt", sep=";",
-                            header = TRUE, na.strings = "?", stringsAsFactors = FALSE)
+                            header = TRUE, na.strings = "?",
+                            stringsAsFactors = FALSE)
      ep1 <- subset(elec_pow, Date == "1/2/2007")
      ep2 <- subset(elec_pow, Date == "2/2/2007")
      ep_2days <- rbind(ep1, ep2)
-##Convert format of date & time columns
-     ep_2days$Date <- as.Date(ep_2days$Date, format = "%d/%m/%Y")
-     ep_2days$Time <- strptime(ep_2days$Time, format = "%H:%M:%S")
-     ## plot line graph
-##png(filename = "plot1.png", width = 480, height = 480)
-     with(ep_2days, plot(Time, Global_active_power, type = "l",
+##Combine date & time columns and format
+     ep_2days$DateTime <- paste(ep_2days$Date, ep_2days$Time, sep = " ")
+     ep_2days$DateTime <- strptime(ep_2days$DateTime, format = "%d/%m/%Y %H:%M:%S")
+## Plot line graph
+     png(filename = "plot2.png", width = 480, height = 480)
+     with(ep_2days, plot(DateTime, Global_active_power, type = "l",
           xlab = "", ylab = "Global Active Power (kilowatts)" ))
-##dev.off()
+     dev.off()
