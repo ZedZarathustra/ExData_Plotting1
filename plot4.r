@@ -20,7 +20,8 @@ setwd("~/R/Coursera/4-Exploratory_Data_Analysis/ExData_Plotting1")
      with(ep_2days, plot(DateTime, Global_active_power, type = "l",
                          xlab = "", ylab = "Global Active Power (kilowatts)" ))
 ## 2nd plot
-     
+     with(ep_2days, plot(DateTime, Voltage, type = "l",
+                         xlab = "", ylab = "Voltage" ))
 ## 3rd plot
      with(ep_2days, plot(DateTime, Sub_metering_1, type = "l",
                          xlab = "", ylab = "Energy sub metering" ))
